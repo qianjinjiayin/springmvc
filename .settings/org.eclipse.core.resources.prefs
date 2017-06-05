@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/aop/ControllerHelper.java=UTF-8
+encoding//src/controller/CoderController.java=UTF-8
+encoding//src/controller/LoginController.java=UTF-8
+encoding//src/controller/TesterController.java=UTF-8
+encoding//src/filter/AuthenticationFilter.java=UTF-8
+encoding//src/model/Person.java=UTF-8
+encoding//src/util/PropertyUtil.java=UTF-8

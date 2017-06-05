@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Controller -->
+	<!-- 1, BeanNameUrlHandlerMapping -->
+	<!-- If there is no explicitly declared handler mapping, Spring will use 
+		default BeanNameUrlHandlerMapping -->
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/> -->
+	<bean name="/person/coder" class="controller.CoderController">
+		<property name="person" ref="coder" />
+	</bean>
+
+	<!-- 2, SimpleUrlHandlerMapping -->
+<!-- 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/person/coder">coderController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean name="coderController" class="controller.CoderController" /> -->
+
+	<!-- 3, ControllerClassNameHandlerMapping -->
+	<!-- 3.a, mapping "/helloworld*" -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" 
+		/> <bean class="controller.HelloWorldController"/> -->
+
+	<!-- 3.b, mapping "/helloWorld*" request -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"> 
+		<property name="caseSensitive" value="true" /> </bean> <bean class="controller.HelloWorldController" 
+		/> -->
+
+	<!-- 3.c, mapping "/hello/helloworld*" request -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" 
+		> <property name="pathPrefix" value="/hello" /> </bean> <bean class="controller.HelloWorldController"/> -->
+	<!-- Controller END -->	
+		
+	<bean id="coder" class="model.impl.Coder">
+		<property name="name" value="WJY" />
+		<property name="age" value="26" />
+		<property name="height" value="170.55" />
+		<property name="favorite">
+			<array>
+				<value>F1</value>
+				<value>F2</value>
+				<value>F3</value>
+			</array>
+		</property>
+		<property name="address">
+			<set>
+				<value>A1</value>
+				<value>A2</value>
+				<value>A3</value>
+			</set>
+		</property>
+		<property name="others">
+			<map>
+				<entry>
+					<key>
+						<value>K1</value>
+					</key>
+					<value>V1</value>
+				</entry>
+				<entry>
+					<key>
+						<value>K2</value>
+					</key>
+					<value>V2</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>  
